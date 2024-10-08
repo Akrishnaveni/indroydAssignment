@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { QRCodeCanvas as QRCode } from "qrcode.react";
 import "./MainScreen.css";
 
@@ -49,7 +49,6 @@ const MainScreen = ({ location }) => {
   const newPlayerFromMobile = searchParams.get("player");
 
   useEffect(() => {
-    // If a new player joined via mobile, add them to the playerList
     if (newPlayerFromMobile && !playerList.includes(newPlayerFromMobile)) {
       setPlayerList((prevList) => [...prevList, newPlayerFromMobile]);
       setCurrentPlayer(newPlayerFromMobile);
@@ -58,7 +57,7 @@ const MainScreen = ({ location }) => {
         [newPlayerFromMobile]: 0,
       }));
     }
-  }, [newPlayerFromMobile, playerList]);
+  }, [newPlayerFromMobile]); // Run when newPlayerFromMobile changes
 
   const handlePlayerChange = (e) => {
     setCurrentPlayer(e.target.value);
@@ -89,7 +88,7 @@ const MainScreen = ({ location }) => {
 
       if (currentQuestion === questions.length - 1) {
         setMessage(
-          `Congratulations, ${currentPlayer}! You've completed the quiz.`
+          ` Congratulations, ${currentPlayer}! You've completed the quiz.`
         );
         setIsGameOver(true);
       } else {
@@ -97,7 +96,7 @@ const MainScreen = ({ location }) => {
         setTimeout(() => {
           setCurrentQuestion((prev) => prev + 1);
           setMessage("");
-        }, 2000);
+        }, 3000);
       }
     } else {
       setMessage(`Sorry, ${currentPlayer}, that's not correct.`);
@@ -110,12 +109,12 @@ const MainScreen = ({ location }) => {
     if (newPlayer) {
       if (playerList.includes(newPlayer)) {
         setErrorMessage(
-          `Error: Player "${newPlayer}" already exists. Try a different name.`
+          `Error: Player "${newPlayer}" already exists.Try a different name.`
         );
       } else {
-        setPlayerList((prevList) => [...prevList, newPlayer]);
+        setPlayerList([...playerList, newPlayer]);
         setCurrentPlayer(newPlayer);
-        setPlayerScores((prevScores) => ({ ...prevScores, [newPlayer]: 0 }));
+        setPlayerScores({ ...playerScores, [newPlayer]: 0 });
         setIsGameOver(false);
         setCurrentQuestion(0);
         setAnsweredQuestions({});
@@ -183,23 +182,17 @@ const MainScreen = ({ location }) => {
               </li>
             ))}
           </ul>
+          {message && <p className="message">{message}</p>}
         </div>
       )}
-
-      {message && <p className="message">{message}</p>}
 
       {isGameOver && (
         <div className="summary-section">
           <h4 className="game-over">Game is over!</h4>
-          <p>{currentPlayer} has completed the game.</p>
-          <h3>Player Summary</h3>
-          <ul className="score-list">
-            {playerList.map((player, index) => (
-              <li key={index}>
-                {player}: {playerScores[player]} correct answers
-              </li>
-            ))}
-          </ul>
+          <p>
+            {currentPlayer}: {playerScores[currentPlayer]} correct answers
+          </p>
+
           <h4 className="highest-scorer">
             {getHighestScorer()} answered the most questions correctly!
           </h4>

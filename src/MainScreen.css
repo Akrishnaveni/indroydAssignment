@@ -10,6 +10,7 @@
   color: #fff;
   text-align: center;
   animation: fadeIn 1s ease-in;
+  max-height: 100vh;
 }
 
 @keyframes fadeIn {
@@ -40,7 +41,7 @@
 }
 
 .player-selection {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .player-label {
@@ -72,7 +73,8 @@
   background-color: rgb(239, 240, 237);
   margin-top: 10px;
   border-radius: 10px;
-  padding: 20px;
+  padding-left: 20px;
+  padding: 10px;
   text-align: left;
   color: black;
 }
@@ -80,16 +82,18 @@
 .question-number {
   font-size: 1.2rem;
   margin-bottom: 8px;
+  padding-left: 20px;
 }
 
 .question-text {
   font-size: 1.1rem;
   margin-bottom: 10px;
+  padding-left: 20px;
 }
 
 .options-list {
   list-style-type: none;
-  padding: 0;
+  padding-left: 17px;
 }
 
 .option-btn {
@@ -114,7 +118,7 @@
 .message {
   font-size: 1.2rem;
   margin-top: 20px;
-  color: white;
+  color: rgb(23, 145, 226);
   animation: fadeInMessage 1.5s ease;
 }
 

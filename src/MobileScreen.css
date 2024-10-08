@@ -1,0 +1,19 @@
+.mobile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.player-input {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.join-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
