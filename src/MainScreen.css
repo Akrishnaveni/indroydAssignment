@@ -1,0 +1,182 @@
+/* MainScreen.css */
+.quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #a0b5ca, #95c9f3);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.game-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.qr-code-section {
+  margin: 20px 0;
+}
+
+.qr-code {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #fff;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.player-selection {
+  margin-bottom: 20px;
+}
+
+.player-label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.player-dropdown,
+.add-player-btn {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.add-player-btn {
+  background-color: #27ae60;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-player-btn:hover {
+  background-color: #2ecc71;
+}
+
+.question-section {
+  background-color: rgb(239, 240, 237);
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  color: black;
+}
+
+.question-number {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.options-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.option-btn {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 150px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option-btn:hover {
+  background-color: #30698f;
+  transform: scale(1.05);
+}
+
+.message {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: white;
+  animation: fadeInMessage 1.5s ease;
+}
+
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-over {
+  font-size: 1.8rem;
+  color: #e74c3c;
+  margin-top: 20px;
+  animation: bounceIn 0.1s ease;
+  height: 40px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+}
+
+@keyframes bounceIn {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 15px;
+  }
+
+  .game-title {
+    font-size: 2rem;
+  }
+
+  .qr-code {
+    width: 120px;
+    height: 120px;
+  }
+
+  .player-dropdown,
+  .add-player-btn {
+    font-size: 0.9rem;
+  }
+
+  .option-btn {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}
