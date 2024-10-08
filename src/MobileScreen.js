@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+
 import "./MobileScreen.css";
 
 const MobileScreen = () => {
